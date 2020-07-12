@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.dev -t ainsleedocker/docker-react .
+
+script:
+  - docker run ainsleedocker/docker-react npm run test -- --coverage
